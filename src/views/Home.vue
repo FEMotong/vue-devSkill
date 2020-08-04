@@ -6,18 +6,23 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  // @ is an alias to /src
+  import HelloWorld from '@/components/HelloWorld.vue'
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  },
-  data() {
-    return {
-      Author: ''
+  export default {
+    name: 'Home',
+    provide() {
+      return {
+        date: new Date()
+      }
+    },
+    components: {
+      HelloWorld
+    },
+    data() {
+      return {
+        Author: ''
+      }
     }
   }
-}
 </script>
