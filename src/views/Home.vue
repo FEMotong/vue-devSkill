@@ -7,6 +7,7 @@
 </template>
 
 <script>
+  /*eslint-disable*/
   import { state, mutations } from "../store/store";
   // @ is an alias to /src
   import HelloWorld from '@/components/HelloWorld.vue'
@@ -35,7 +36,6 @@
       this.watchData()
     },
     methods: {
-      /*eslint-disable*/
       watchData() {
         let unwatchFn = this.$watch('count',function (newVal) {
           console.log(`count新的值: ${newVal}`)
