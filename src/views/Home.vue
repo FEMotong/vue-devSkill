@@ -31,7 +31,17 @@
         return state.count
       }
     },
+    created() {
+      this.watchData()
+    },
     methods: {
+      /*eslint-disable*/
+      watchData() {
+        let unwatchFn = this.$watch('count',function (newVal) {
+          console.log(`count新的值: ${newVal}`)
+        })
+        // unwatchFn()  // 卸载观察者
+      },
       setState() {
         // state.count++
         mutations.SET_COUNT(100)
