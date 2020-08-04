@@ -1,11 +1,13 @@
 import {
     Button,
-    Form
+    Form,
+    Row
 } from 'element-ui'
 
 const components = {
     Button,
-    Form
+    Form,
+    Row
 }
 const componentHandler = (Vue) => {
         Object.keys(components).forEach(key => {
