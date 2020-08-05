@@ -1,6 +1,8 @@
 <template>
     <div>
-        From Parent: {{ name }}
+        <p>From Parent: {{ name }}</p>
+        <p>From Child: {{ tips }}</p>
+        <el-button type="primary" @click="changeParent">改变父组件的值</el-button>
     </div>
 </template>
 
@@ -10,6 +12,11 @@
     props: {
       name: String
     },
+    data() {
+      return {
+        tips: '俺我子组件!'
+      }
+    },
     created() {
       this.sendParent()
     },
@@ -17,6 +24,9 @@
       sendParent() {
         this.$emit("update:title","$emit + update:方式发送数据") // update后边:不能有空格！
         // this.$emit("onEmitTitle","$emit + update:方式发送数据") // update后边:不能有空格！
+      },
+      changeParent() {
+        this.$parent.title = "改变父组件的值！"
       }
     }
   }

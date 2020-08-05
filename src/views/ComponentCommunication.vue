@@ -2,9 +2,11 @@
     <div class="component-communication">
         <h1>组件通信</h1>
         <p>方法一：props / emit (update:xx as child + xx:sync as parent)</p>
+        <p>From child: {{ title }}</p>
         <Communication :title.sync="title" :name="name"></Communication>
 <!--        <Communication @onEmitTitle="onEmitTitle" :name="name"></Communication>-->
-        From child: {{ title }}
+        <br>
+        <el-button type="primary" @click="changeChildTips">改变子组件的值</el-button>
     </div>
 </template>
 
@@ -27,6 +29,9 @@
       // onEmitTitle(val) {
       //   this.title = val
       // }
+      changeChildTips() {
+        this.$children[0].tips = '改变子组件的值!'
+      }
     }
   }
 </script>
