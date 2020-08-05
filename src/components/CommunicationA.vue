@@ -10,7 +10,8 @@
         <br>
         <p>改变B组件的数据: {{ BMsg }}</p>
         <el-button type="primary" @click="getComAData">点我改变B组件的数据</el-button>
-
+        <br>
+        <p>嘿，我是B组件, 今年 {{ BAge }} 岁了！</p>
     </div>
 </template>
 
@@ -27,7 +28,8 @@
       return {
         tips: '俺我子组件!',
         book: '<<前端架构>>',
-        messageA: '嘿，B组件，我是A组件！'
+        messageA: '嘿，B组件，我是A组件！',
+        BAge: 0
       }
     },
     computed: {
@@ -37,8 +39,13 @@
     },
     created() {
       this.sendParent()
+      this.getBStorage()
     },
     methods: {
+      getBStorage() {
+        localStorage.setItem('AMsg', 18)
+        this.BAge = localStorage.getItem('BMsg')
+      },
       getComAData() {
         this.$store.commit('receiveBMSG', {
           BMSG: this.messageA
