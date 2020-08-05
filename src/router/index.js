@@ -4,13 +4,17 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
   const routeOptions = [
-  {
-    path: '/',
-    name: 'Home'
-  },
-  {
-    path: '/about',
-    name: 'About'
+    {
+      path: '/',
+      name: 'Home'
+    },
+    {
+      path: '/about',
+      name: 'About'
+    },
+    {
+    path: '/ComponentCommunication',
+    name: 'ComponentCommunication'
   }
 ]
 
