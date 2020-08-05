@@ -16,6 +16,9 @@
 
   export default {
     name: "ComponentCommunication",
+    provide: {
+      DependencyInjection: "通过provide / inject 组件依赖注入"
+    },
     components: {
       Communication
     },

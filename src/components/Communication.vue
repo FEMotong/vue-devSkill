@@ -3,12 +3,15 @@
         <p>From Parent: {{ name }}</p>
         <p>From Child: {{ tips }}</p>
         <el-button type="primary" @click="changeParent">改变父组件的值</el-button>
+        <br>
+        <p>依赖注入：{{ DependencyInjection }}</p>
     </div>
 </template>
 
 <script>
   export default {
     name: "Communication",
+    inject: ['DependencyInjection'],
     props: {
       name: String
     },
