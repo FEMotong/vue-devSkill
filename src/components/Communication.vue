@@ -7,6 +7,10 @@
         <p>From Parent：{{ DependencyInjection }}</p>
 
         <el-button type="primary" @click="comApostHandle">与componentB握手</el-button>
+        <br>
+        <p>改变B组件的数据: {{ BMsg }}</p>
+        <el-button type="primary" @click="getComAData">点我改变B组件的数据</el-button>
+
     </div>
 </template>
 
@@ -22,13 +26,24 @@
     data() {
       return {
         tips: '俺我子组件!',
-        book: '<<前端架构>>'
+        book: '<<前端架构>>',
+        messageA: '嘿，B组件，我是A组件！'
+      }
+    },
+    computed: {
+      BMsg() {
+        return this.$store.state.BMSG
       }
     },
     created() {
       this.sendParent()
     },
     methods: {
+      getComAData() {
+        this.$store.commit('receiveBMSG', {
+          BMSG: this.messageA
+        })
+      },
       sendParent() {
         this.$emit("update:title","$emit + update:方式发送数据") // update后边:不能有空格！
         // this.$emit("onEmitTitle","$emit + update:方式发送数据") // update后边:不能有空格！
