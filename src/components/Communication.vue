@@ -2,9 +2,9 @@
     <div>
         <p>From Parent: {{ name }}</p>
         <p>From Child: {{ tips }}</p>
-        <el-button type="primary" @click="changeParent">改变父组件的值</el-button>
+        <el-button type="primary" @click="changeParent">改变父组件的值$parent</el-button>
         <br>
-        <p>依赖注入：{{ DependencyInjection }}</p>
+        <p>From Parent：{{ DependencyInjection }}</p>
     </div>
 </template>
 
@@ -17,7 +17,8 @@
     },
     data() {
       return {
-        tips: '俺我子组件!'
+        tips: '俺我子组件!',
+        book: '<<前端架构>>'
       }
     },
     created() {
