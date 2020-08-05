@@ -9,13 +9,15 @@
         <br>
         <p>From child: {{ childComponentBook }}</p>
         <el-button type="primary" @click="passRefs">通过refs获取子组件数据</el-button>
-
+        <br>
+        <CommunicationB></CommunicationB>
     </div>
 </template>
 
 <script>
   /*eslint-disable*/
   import Communication from '@/components/Communication.vue'
+  import CommunicationB from '@/components/CommunicationB.vue'
 
   export default {
     name: "ComponentCommunication",
@@ -23,7 +25,8 @@
       DependencyInjection: "通过provide / inject 组件依赖注入"
     },
     components: {
-      Communication
+      Communication,
+      CommunicationB
     },
     data() {
       return {
