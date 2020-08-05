@@ -10,7 +10,12 @@
         <p>From child: {{ childComponentBook }}</p>
         <el-button type="primary" @click="passRefs">通过refs获取子组件数据</el-button>
         <br>
-        <CommunicationB></CommunicationB>
+        <CommunicationB
+        :myName="myName"
+        :age="age"
+        :loveBook="loveBook"
+        @test1="test1"
+        ></CommunicationB>
     </div>
 </template>
 
@@ -30,6 +35,9 @@
     },
     data() {
       return {
+        myName: 'FEMotong',
+        age: '芳龄18岁',
+        loveBook: '《前端架构》',
         name: '通过props向下传递数据！',
         title: '',
         childComponentBook: '《CSS世界》'
@@ -44,6 +52,9 @@
       },
       passRefs() {
         this.childComponentBook = this.$refs['componnetA'].book
+      },
+      test1(){
+        debugger
       }
     }
   }
